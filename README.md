@@ -1,6 +1,8 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Install nodejs v20.10.0
+## (Run npm i) to install package-lock.json + node_modules
 
 ## Available Scripts
 
