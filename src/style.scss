@@ -1,0 +1,28 @@
+.App {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  .scrolling_board {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    overflow-x: hidden;
+    max-height: 70vh;
+    height: fit-content;
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #cccccc;
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: #cccccc;
+    }
+  }
+}
