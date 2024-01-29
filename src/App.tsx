@@ -128,8 +128,8 @@ function App() {
             return (
               <div key={index}>
                 {item?.images && <Image width={200} src={item?.images[0]} />}
-                <Title level={3}>{item.title}</Title>
-                <Title level={3}>{item.price}</Title>
+                <Title level={3}> Name: {item.title}</Title>
+                <Title level={3}> Price: ${item.price}</Title>
                 <hr style={{ marginBottom: "30px" }} />
               </div>
             );
