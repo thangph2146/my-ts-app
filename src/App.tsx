@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import axios from "axios";
 import Title from "antd/es/typography/Title";
 import Search from "antd/es/input/Search";
 import { Image } from "antd";
 import "./style.scss";
 import { DataType, ProductType } from "./App.dto";
-
-const api = axios.create();
+import { getAllProducts, searchProducts } from "./App.api";
 
 function App() {
   const [data, setData] = useState<ProductType[] | undefined>([]);
@@ -16,11 +14,9 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [filtered, setFiltered] = useState(false);
   const elementRef = useRef(null);
-  const getAllProducts = () => {
-    return api.get<DataType>(`https://dummyjson.com/products?limit=${limit}`);
-  };
+
   const fetchData = async () => {
-    await getAllProducts().then((res) => {
+    await getAllProducts(limit).then((res) => {
       const dataRes = res.data.products;
       if (dataRes?.length == 0) {
         setHasMore(false);
@@ -35,12 +31,7 @@ function App() {
     setLoading(true);
     setFiltered(e ? true : false);
     setLimit(20);
-    await api
-      .get<DataType>(
-        `https://dummyjson.com/products/search?q=${search
-          .toLocaleLowerCase()
-          .trim()}`
-      )
+    await searchProducts(search)
       .then((res) => {
         console.debug(res.data.products);
         setData(res.data.products);
