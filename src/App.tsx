@@ -31,6 +31,7 @@ export type ProductType = {
   category?: string;
   thumbnail?: string;
   images?: string[];
+  prand?: string;
 };
 function App() {
   const [data, setData] = useState<ProductType[] | undefined>([]);
@@ -127,9 +128,14 @@ function App() {
           data?.map((item: ProductType, index) => {
             return (
               <div key={index}>
-                {item?.images && <Image width={200} src={item?.images[0]} />}
+                {item?.images && <Image width={200} src={item.thumbnail} />}
                 <Title level={3}> Name: {item.title}</Title>
+                <Title level={3}> Description: {item.description}</Title>
                 <Title level={3}> Price: ${item.price}</Title>
+                <Title level={3}> Brand: {item.brand}</Title>
+                <Title level={3}> Category: {item.category}</Title>
+                <Title level={3}> Rating: {item.rating}</Title>
+
                 <hr style={{ marginBottom: "30px" }} />
               </div>
             );
