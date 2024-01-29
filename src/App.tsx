@@ -132,6 +132,7 @@ function App() {
                 <Title level={3}> Name: {item.title}</Title>
                 <Title level={3}> Description: {item.description}</Title>
                 <Title level={3}> Price: ${item.price}</Title>
+                <Title level={3}> Stock: {item.stock}</Title>
                 <Title level={3}> Brand: {item.brand}</Title>
                 <Title level={3}> Category: {item.category}</Title>
                 <Title level={3}> Rating: {item.rating}</Title>
