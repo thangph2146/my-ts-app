@@ -4,35 +4,10 @@ import Title from "antd/es/typography/Title";
 import Search from "antd/es/input/Search";
 import { Image } from "antd";
 import "./style.scss";
+import { DataType, ProductType } from "./App.dto";
 
 const api = axios.create();
 
-export type ApiResultType<T> = {
-  isSuccess: boolean;
-  data: T;
-  errorCode?: number;
-  errors?: string[];
-};
-export type DataType = {
-  limit?: number;
-  products?: ProductType[];
-  skip?: number;
-  total?: number;
-};
-export type ProductType = {
-  id?: number;
-  title?: string;
-  description?: string;
-  price?: number;
-  discountPercentage?: number;
-  rating?: number;
-  stock?: number;
-  brand?: string;
-  category?: string;
-  thumbnail?: string;
-  images?: string[];
-  prand?: string;
-};
 function App() {
   const [data, setData] = useState<ProductType[] | undefined>([]);
   const [limit, setLimit] = useState(20);
